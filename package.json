@@ -1,0 +1,23 @@
+{
+  "name": "generator-az-iot",
+  "version": "0.1.0",
+  "description": "IoT Sample Scaffolding",
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "Azure IoT",
+    "yeoman-generator"
+  ],
+  "author": [
+    "zikalino@microsoft.com",
+    "zhijzhao@microsoft.com"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "yeoman-generator": "^0.23.0",
+    "yosay": "^1.0.0"
+  }
+}
