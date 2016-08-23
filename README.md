@@ -1,5 +1,5 @@
-# generator-az-iot [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> IoT Sample Scaffolding
+# generator-az-iot
+> Azure IoT Sample Scaffolding
 
 ## Installation
 
@@ -25,14 +25,4 @@ yo az-iot
 
 ## License
 
-MIT © [Zim Kalinowski](http://nohomepageyet.com)
-
-
-[npm-image]: https://badge.fury.io/js/generator-az-iot.svg
-[npm-url]: https://npmjs.org/package/generator-az-iot
-[travis-image]: https://travis-ci.org/zikalino/generator-az-iot.svg?branch=master
-[travis-url]: https://travis-ci.org/zikalino/generator-az-iot
-[daviddm-image]: https://david-dm.org/zikalino/generator-az-iot.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/zikalino/generator-az-iot
-[coveralls-image]: https://coveralls.io/repos/zikalino/generator-az-iot/badge.svg
-[coveralls-url]: https://coveralls.io/r/zikalino/generator-az-iot
+MIT © Zim Kalinowski
