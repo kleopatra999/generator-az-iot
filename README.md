@@ -25,4 +25,4 @@ yo az-iot
 
 ## License
 
-MIT © Zim Kalinowski
+Microsoft Public License (Ms-PL)

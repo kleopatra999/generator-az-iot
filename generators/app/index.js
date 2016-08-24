@@ -191,7 +191,7 @@ module.exports = yeoman.Base.extend({
               var configFile = './' + sampleFolderName + '/config.json';
               fs.exists(configFile, function(exists) {
                 if (exists) {
-                  fs.readFile(configFile, 'utf8', (err, data) => {
+                  fs.readFile(configFile, 'utf8', function(err, data) {
                     if(err)
                     {
                       done(err)
