@@ -4,6 +4,8 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var fs = require('fs');
 
+var baseUrl = 'https://api.github.com/repos/Microsoft/iot-hub-node-c-starterkits/contents';
+
 module.exports = yeoman.Base.extend({
 
   prompting: function () {
@@ -33,7 +35,7 @@ module.exports = yeoman.Base.extend({
 
     // get list of boards
     var done = this.async();
-    var url = 'https://api.github.com/repos/zikalino/iot-samples/contents';
+    var url = baseUrl;
     var file = require('url').parse(url).path.split('/').pop();
     var _this = this;
     this.fetch(url, this.destinationPath("."), function(err) {
@@ -79,7 +81,7 @@ module.exports = yeoman.Base.extend({
   prompting_2: function() {
     // get list of examples
     var done = this.async();
-    var url = 'https://api.github.com/repos/zikalino/iot-samples/contents/' + this.board;
+    var url = baseUrl + '/' + this.board;
     var file = require('url').parse(url).path.split('/').pop();
     var _this = this;
     this.fetch(url, this.destinationPath("."), function(err) {
@@ -125,7 +127,7 @@ module.exports = yeoman.Base.extend({
   prompting_3: function() {
     // get list of languages
     var done = this.async();
-    var url = 'https://api.github.com/repos/zikalino/iot-samples/contents/' + this.board + '/' + this.example;
+    var url = baseUrl + '/' + this.board + '/' + this.example;
     var file = require('url').parse(url).path.split('/').pop();
     var _this = this;
     this.fetch(url, this.destinationPath("."), function(err) {
@@ -172,7 +174,7 @@ module.exports = yeoman.Base.extend({
     var _this = this;
     var done = this.async();
 
-    var url = 'https://api.github.com/repos/zikalino/iot-samples/contents/' + this.board + '/' + this.example + '/' + this.language;
+    var url = baseUrl + '/' + this.board + '/' + this.example + '/' + this.language;
     var file = require('url').parse(url).path.split('/').pop();
       this.fetch(url, _this.destinationPath("."), function(err) {
         
@@ -244,7 +246,7 @@ module.exports = yeoman.Base.extend({
     // check the dependency of each sample's gulp script and install them on demand,
     // instead of installing all the dependencies here.
     this.npmInstall(['simple-ssh'], { 'saveDev': true });
-    this.npmInstall(['az-iot-helper-test'], { 'saveDev': true });
+    this.npmInstall(['az-iot-helper'], { 'saveDev': true });
     this.npmInstall(['request'], { 'saveDev': true });
     this.npmInstall(['vinyl-source-stream'], { 'saveDev': true });
     this.npmInstall(['gulp-unzip'], { 'saveDev': true });
