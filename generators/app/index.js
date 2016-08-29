@@ -12,7 +12,7 @@ module.exports = yeoman.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to ' + chalk.red('scaffolding') + ' generator!'
+      'Welcome to ' + chalk.red('az-iot scaffolding 0.1.3') + ' generator!'
     ));
 
     // initialize settings -- empty initially
@@ -183,14 +183,16 @@ module.exports = yeoman.Base.extend({
 
         require('fs').unlinkSync(_this.destinationPath(file));
         
-        var sampleFolderName = _this.board + '-' + _this.example + '-' + _this.language + '-sample';
+        _this.sampleFolderName = _this.board + '-' + _this.example + '-' + _this.language + '-sample';
+        require('fs').mkdirSync(_this.sampleFolderName);
+
         list.forEach(function(element) {
-          _this.fetch(element.download_url, sampleFolderName, function(err) {
+          _this.fetch(element.download_url, _this.sampleFolderName, function(err) {
             fetchCount--;
 
             if (fetchCount == 0)
             {
-              var configFile = './' + sampleFolderName + '/config.json';
+              var configFile = './' + _this.sampleFolderName + '/config.json';
               fs.exists(configFile, function(exists) {
                 if (exists) {
                   fs.readFile(configFile, 'utf8', function(err, data) {
@@ -237,18 +239,7 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    if(!fs.existsSync("package.json"))
-    {
-      fs.writeFile("package.json", "{}"); 
-    }
-    
-    // TODO:
-    // check the dependency of each sample's gulp script and install them on demand,
-    // instead of installing all the dependencies here.
-    this.npmInstall(['simple-ssh'], { 'saveDev': true });
-    this.npmInstall(['az-iot-helper'], { 'saveDev': true });
-    this.npmInstall(['request'], { 'saveDev': true });
-    this.npmInstall(['vinyl-source-stream'], { 'saveDev': true });
-    this.npmInstall(['gulp-unzip'], { 'saveDev': true });
+    process.chdir(this.sampleFolderName);
+    this.installDependencies();
   }
 });
