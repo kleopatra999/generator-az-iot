@@ -184,7 +184,6 @@ module.exports = yeoman.Base.extend({
         require('fs').unlinkSync(_this.destinationPath(file));
         
         _this.sampleFolderName = _this.board + '-' + _this.example + '-' + _this.language + '-sample';
-        require('fs').mkdirSync(_this.sampleFolderName);
 
         list.forEach(function(element) {
           _this.fetch(element.download_url, _this.sampleFolderName, function(err) {

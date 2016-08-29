@@ -1,6 +1,6 @@
 {
   "name": "generator-az-iot",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "scaffolding tool for sample applications of Azure IoT Starter Kits",
   "files": [
     "generators"
